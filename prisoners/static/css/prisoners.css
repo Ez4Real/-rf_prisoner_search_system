@@ -1,0 +1,234 @@
+#prisoner_data {
+  color: #FF4C29;
+}
+
+.prisonerContainer .prisoner_url{
+  color: rgb(0, 162, 255);
+}
+
+.prisonerContainer {
+  border: 1px solid black;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  font-family: system-ui;
+}
+
+.prisonerContainer th {
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.prisonerContainer td {
+  border: 1px solid black;
+  padding: 12px;
+  font-size: 16px;
+  height: max-content;
+  min-height: 50px;
+}
+
+.info_paging_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0px 0, 20px, 0;
+  padding: 0 20px;
+}
+
+.pagination .page-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  line-height: 28px;
+  min-width: 30px;
+  padding: 0 5px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #E5FBEB;
+  color: #E5FBEB;
+  cursor: pointer;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.block_info > .info {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.block_info > .info::before {
+  content: '';
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.status_img {
+  width: 28px;
+  height: 28px;
+}
+
+.prisoner_statuses {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.block_info > .info-first::before {
+  background-image: url('/static/images/status_1.svg');
+}
+.block_info > .info-second::before {
+  background-image: url('/static/images/status_2.svg');
+}
+.block_info > .info-third::before {
+  background-image: url('/static/images/status_3.svg');
+}
+.block_info > .info-fourth::before {
+  background-image: url('/static/images/status_4.svg');
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0px;
+  background-color: #334756;
+}
+body p {
+  margin: 0px;
+}
+body main header {
+  padding: 39px 0px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background: #082032;
+}
+body main header .fast_links-main {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: system-ui;
+}
+body main header .fast_links-back {
+  font-size: 18px;
+  margin: 0 40px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: system-ui;
+}
+body main header .nav-log {
+  display: flex;
+  align-items: center;
+}
+body main header .nav-log .fast_links {
+  font-size: 18px;
+  margin: 0 40px;
+  text-decoration: none;
+  color: #FF4C29;
+  font-size: 20px;
+  font-family: system-ui;
+}
+body main section .type-form {
+  background-color: #2C394B;
+  padding: 35px 0px;
+}
+body main section .type-form p {
+  color: rgb(0, 0, 0);
+  padding-bottom: 15px;
+}
+body main section .type-form form {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 710px;
+}
+body main section .type-form form label {
+  margin: 0 10px;
+}
+body main section .type-form form input {
+  margin: 0 5px;
+}
+body main section .type-form form .one_inp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main section .type-form form .your-name {
+  padding: 10px 12px;
+  border-radius: 13px;
+  border: 0px;
+  background: rgb(174, 201, 201);
+  margin: 0 6px;
+}
+body main section .type-form form .your-name::placeholder {
+  color: rgb(0, 0, 0);
+}
+body main section .type-form form .drop-box {
+  padding: 8px 12px;
+  border-radius: 13px;
+  border: 0px;
+  background: rgb(174, 201, 201);
+  margin: 0 6px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+body main section .type-form form .under-way {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main section .type-form form .under-way .color {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+body main section .type-form form .under-way .submit-button {
+  background: none;
+  padding: 10px 12px;
+  border-radius: 13px;
+  border: 1px solid #FF4C29;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: rgb(174, 201, 201);
+}
+body main section .type-form form .under-way .delete-button {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid #FF4C29;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background-color: rgb(174, 201, 201);
+}
+body main section .block_info {
+  padding: 37px 0;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: system-ui
+}
+
+@media (max-width:1400px) {
+  .prisonerContainer td {
+    min-height: 70px;
+  }  
+}
+
+@media (max-width:950px) {
+  .prisonerContainer td {
+    min-height: 90px;
+  }  
+}

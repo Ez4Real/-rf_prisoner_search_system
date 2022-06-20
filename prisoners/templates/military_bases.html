@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block css %}<link href='/static/css/prisoners.css' rel="stylesheet">{% endblock css %}
+{% block title %}Воинские части{% endblock title %}
+{% block content %}
+<header>
+    <a href="/prisoners" class="fast_links-main">Оккупанты</a>
+    <nav class="nav-log">
+        <a href="/prisoners" class="fast_links active">Список</a>
+        <a href="#" class="fast_links">Аналитика</a>
+        <a href="/requests" class="fast_links">Запросы</a>
+    </nav>
+    <a href="#" class="fast_links-back">Всего в базе 138443</a>
+</header>
+<div>
+    <ul class='baseContainer'>
+        {% for base in bases_data %}
+        <li class='base' data-base-id='{{base.id}}' id='base_data'>{{base.name}} {{base.soldiers}} {{base.take_part}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

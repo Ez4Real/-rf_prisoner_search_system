@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block css %}<link href='/static/css/prisoner.css' rel="stylesheet">{% endblock css %}
+{% block title %}Установка связи{% endblock title %}
+{% block content %}
+    <div id ='prisoner_data'>
+        <p>ФИО: {{ prisoner_data.name }}</p>
+        <p>Воинская часть: {{ prisoner_data.military_base.name }}</p>
+        <p>Дата рождения: {{ prisoner_data.date_of_birth }}</p>
+        <p>Звание: {{ prisoner_data.rank }}</p>
+        <p>Адресс: {{ prisoner_data.adress }}</p>
+        <button id='request_button'>Установить родственную связь</button>
+    </div>
+    
+    <div class="modal" id='family_relation_request_modal'>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id='family_relation_request_form'>
+                <select id='family_relation_select' name="family_relation"> 
+                    <option value="мать"selected>мать</option>
+                    <option value="отец">отец</option>
+                    <option value="жена">жена</option>
+                    <option value="муж">муж</option>
+                    <option value="девушка">девушка</option>
+                    <option value="парень">парень</option>
+                    <option value="another">другое...</option>
+                </select>
+                <button type='submit'>Отправить запрос</button>
+                <h1 class='family_relation_status'></h1>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация{% endblock title %}
+{% block content %}
+<div class='container'>
+    <form id ='register_form'>
+            <p>Заполните форму чтобы создать аккаунт</p>
+            <span class="error-message"></span>
+            <label for="email"><b>Электронная почта</b></label>
+            <input type="email" placeholder="Введите электронную почту" name="email" id="email" required>
+        
+            <label for="psw"><b>Пароль</b></label>
+            <input type="password" placeholder="Введите пароль" name="password" id="psw" required>
+        
+            <label for="psw-repeat"><b>Повторите пароль</b></label>
+            <input type="password" placeholder="Повторите пароль" name="psw-repeat" id="psw-repeat" required>
+
+            <label for="name"><b>ФИО</b></label>
+            <input type="text" placeholder="Введите ФИО" name="name" id="name" required>
+
+            <label for="psw-repeat"><b>Номер телефона</b></label>
+            <input type="tel" placeholder="Введите номер телефона" name="phone_number" id="phone_number" required>
+        
+            <button type="submit" class="registerbtn">Регистрация</button>
+        
+        <div class="container signin">
+            <p>Уже есть аккаунт? <a href="/auth/login">Войти</a>.</p>
+        </div>
+    </form>
+</div>
+{% endblock content %}

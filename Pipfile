@@ -1,0 +1,51 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiosqlite = "*"
+anyio = "*"
+bcrypt = "*"
+cffi = "*"
+cryptography = "*"
+fastapi = "*"
+h2 = "*"
+h11 = "*"
+hpack = "*"
+hypercorn = "*"
+hyperframe = "*"
+idna = "*"
+iso8601 = "*"
+jwt = "*"
+passlib = "*"
+priority = "*"
+psycopg2 = "*"
+pycparser = "*"
+pydantic = "*"
+python-multipart = "*"
+pytz = "*"
+six = "*"
+sniffio = "*"
+starlette = "*"
+tortoise-orm = "*"
+typing-extensions = "*"
+uvicorn = "*"
+toml = "*"
+wsproto = "*"
+PyJWT = "*"
+asyncpg = "*"
+Jinja2 = "*"
+pypika = "*"
+pypika-tortoise = "*"
+pandas = "*"
+fastapi-mail = "*"
+fastapi-pagination = "*"
+
+[dev-packages]
+
+[scripts]
+localhost = "uvicorn prisoners.main:app --reload"
+
+[requires]
+python_version = "3.10"

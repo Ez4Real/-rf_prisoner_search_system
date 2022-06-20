@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block css %}<link href='/static/css/prisoner.css' rel="stylesheet">{% endblock css %}
+{% block title %}Розгляд запиту{% endblock title %}
+{% block content %}
+    <div id ='request_data'>
+        <p>ПІБ: {{ request_data.user.name }}</p>
+        <p>Email: {{ request_data.user.email }}</p>
+        <p>Номер телефону: {{ request_data.user.phone_number }}</p>
+        <p>Родинний зв'язок: {{ request_data.family_relation }}</p>
+        <p>Полонений: {{ request_data.prisoner.name }}</p>
+        <p>Дата народження: {{ request_data.prisoner.date_of_birth }}</p>
+        <p>Адреса: {{ request_data.prisoner.adress }}</p>
+        <p>Військова частина: {{ request_data.prisoner.military_base.name }}</p> 
+        <p>Військове звання: {{ request_data.prisoner.rank }}</p> 
+        <p>Дата створення: {{ request_data.created_at }}</p> 
+        <button id='review_button'>Розглянути</button>
+    </div>
+
+    <div class="modal" id='review_request_modal'>
+        <div class="modal-content">
+        <span class="close">&times;</span>
+            <div class='review_modal_body'>
+                <div id='review_request_form'>
+                    <button data-type='confirm' type='submit'>Підтвердити запит</button>
+                    <button data-type='decline' type='submit'>Скасувати запит</button>
+                </div>
+                <h1 class='review_status'></h1>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

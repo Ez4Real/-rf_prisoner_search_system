@@ -1,0 +1,7 @@
+*.lock
+*.pdf
+*.docx
+resources.txt
+questions.txt
+config.py
+etc

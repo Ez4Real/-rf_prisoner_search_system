@@ -1,0 +1,145 @@
+#prisoners_data {
+  border: 2px #eee solid;
+  color: #1ae28f;
+  /* color: #E4E4E4; */
+  text-align: center;
+  padding: 10px;
+  list-style-type: none;
+  width: 100%;
+}
+
+#prisoner_data, #request_data {
+    border: 2px #eee solid;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+    list-style-type: none;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: fit-content;
+    margin: auto;
+    justify-content: center;
+}
+
+.request, .base {
+  border: 2px #eee solid;
+  text-align: center;
+  padding: 10px;
+  list-style-type: none;
+  color: #FF4C29;
+}
+
+#prisoner_data #request_button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#request_data #review_button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 40%;
+  margin: auto;
+  justify-content: center;
+}
+
+#register_form p {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#register_form > input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+#register_form > input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#register_form > .registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+#register_form > .registerbtn:hover {
+  opacity:1;
+}
+
+#register_form > a {
+  color: dodgerblue;
+}
+
+#login_form > form {
+  border: 3px solid #f1f1f1;
+}
+
+#login_form > input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#login_form > button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#login_form > button:hover {
+  opacity: 0.8;
+}
+
+/* #login_form > .cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+#login_form > span.psw {
+  float: right;
+  padding-top: 16px;
+} */
+
+

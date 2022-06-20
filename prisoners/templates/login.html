@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Авторизация{% endblock title %}
+{% block content %}
+<div class='container'>
+      <form id ='login_form'>
+            <!-- <span class="error-message"></span> -->
+            <label for="email"><b>Электронная почта</b></label>
+            <input type="email" placeholder="Введите электронную почту" name="email" id="email" required>
+      
+            <label for="psw"><b>Пароль</b></label>
+            <input type="password" placeholder="Введите пароль" name="password" id="psw" required>
+      
+            <button type="submit">Войти</button>
+      </form>
+</div>
+{% endblock content %}

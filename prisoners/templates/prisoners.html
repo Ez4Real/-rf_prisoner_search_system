@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block css %}<link href='/static/css/prisoners.css' rel="stylesheet">{% endblock css %}
+{% block title %}Поиск пленных{% endblock title %}
+{% block content %}
+<header>
+    <a href="/prisoners" class="fast_links-main">Оккупанты</a>
+    <nav class="nav-log">
+        <a href="/prisoners" class="fast_links active">Список</a>
+        <a href="#" class="fast_links">Аналитика</a>
+        <a href="/requests" class="fast_links">Запросы</a>
+    </nav>
+    <a href="#" class="fast_links-back">Всего в базе {{prisoners_count}}</a>
+</header>
+<section>
+    <div class="type-form">
+        <form action='/prisoners/search'>
+            <div class="one_inp">
+                <label for="name"></label>
+                <input class="your-name" type="text" id="name" name="name" placeholder="ФИО">
+                <select class="drop-box" name="status">
+                    <option value="">Любой</option>
+                    <option value="1">Причастен к войне с Украиной</option>
+                    <option value="2">Мёртв</option>
+                    <option value="3">В плену</option>
+                    <option value="4">Учавствует в журналистском расследовании</option>
+                </select>
+            </div>
+            <div class="under-way">
+                <label for="name"></label>
+                <input class="your-name" type="text" id="base" name="base" placeholder="Воинская часть">
+
+                <select class='drop-box' name="rank">
+                    <option value="">Все звания</option>
+                    <option value="енерал-лейтенант">Генерал-лейтенант</option>
+                    <option value="енерал-майор">Генерал-майор</option>
+                    <option value="енерал-полковник">Генерал-полковник</option>
+                    <option value="лавный корабельный старшина">Главный корабельный старшина</option>
+                    <option value="лавный старшина">Главный старшина</option>
+                    <option value="ражданский персонал">Гражданский персонал</option>
+                    <option value="фрейтор">Ефрейтор</option>
+                    <option value="апитан">Капитан</option>
+                    <option value="апитан 1 ранга">Капитан 1 ранга</option>
+                    <option value="апитан 2 ранга">Капитан 2 ранга</option>
+                    <option value="апитан 2 ранга вмф рф">Капитан 2 ранга вмф рф</option>
+                    <option value="апитан 3 ранга">Капитан 3 ранга</option>
+                    <option value="апитан внутренних войск мвд">Капитан внутренних войск мвд</option>
+                    <option value="апитан гвардии">Капитан гвардии</option>
+                    <option value="апитан полиции">Капитан полиции</option>
+                    <option value="апитан-лейтенант">Капитан-лейтенант</option>
+                    <option value="омандир">Командир</option>
+                    <option value="онтр-адмирал">Контр-адмирал</option>
+                    <option value="ейтенант">Лейтенант</option>
+                    <option value="айор">Майор</option>
+                    <option value="атрос">Матрос</option>
+                    <option value="ичман">Мичман</option>
+                    <option value="ладший лейтенант">Младший лейтенант</option>
+                    <option value="ладший сержант">Младший сержант</option>
+                    <option value="одполковник">Подполковник</option>
+                    <option value="олковник">Полковник</option>
+                    <option value="рапорщик">Прапорщик</option>
+                    <option value="ядовой">Рядовой</option>
+                    <option value="ший лейтенант">Старший лейтенант</option>
+                    <option value="ержант">Сержант</option>
+                    <option value="тарший">Старший</option>
+                    <option value="ший лейтенант гвардии">Старший лейтенант гвардии</option>
+                    <option value="ший матрос">Старший матрос</option>
+                    <option value="ший мичман">Старший мичман</option>
+                    <option value="ший офицер">Старший офицер</option>
+                    <option value="ший офицер">старший офицер</option>
+                    <option value="ший прапорщик">Старший прапорщик</option>
+                    <option value="тарший сержант">Старший сержант</option>
+                    <option value="Старшина">Старшина</option>
+                </select>
+
+                <input class="submit-button" type="submit" value="Поиск">
+                <a href="/prisoners" class="delete-button">&times;</a>
+            </div>
+        </form>
+    </div>
+</section>
+<section>
+    <div class="block_info">
+        <span class="info-first info">Военный причастен к войне с Украиной</span>
+        <span class="info-second info">Военный мёртв</span>
+        <span class="info-third info">Военный находится в плену</span>
+        <span class="info-fourth info">Имеется журналистское расследование</span>
+    </div>
+</section>
+<div class="info_paging_block">
+    <div>
+    </div>
+    <div class="paging">
+        <div class="pagination_wrap right">
+            <ul class="pagination">
+                <li class="page-item active"><span class="page-link">1</span></li>
+                <li class="page-item"><span class="page-link">2</span></li>
+                <li class="page-item"><span class="page-link">3</span></li>
+                <li class="page-item"><span class="page-link">4</span></li>
+                <li class="page-item"><span class="page-link">5</span></li>
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+                <li class="page-item"><span class="page-link">2848</span></li>
+                <li class="page-item"><span class="page-link">»</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <table class='prisonerContainer'>
+        <thead>
+          <tr>
+            <th>ФИО</th>
+            <th>Дата рождения</th>
+            <th>Звание</th>
+            <th>Воинская часть</th>
+            <th>Статус</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for prisoner in prisoners_data %}
+            <tr class='prisoner'  id='prisoners_data'>
+                <td>{{prisoner.name}}</td>
+                <td>
+                    {% if prisoner.date_of_birth %}
+                    {{prisoner.date_of_birth}}
+                    {% else %}
+                    -
+                    {% endif %}
+                </td>
+                <td>
+                    {% if prisoner.rank %}
+                    {{prisoner.rank}}
+                    {% else %}
+                    -
+                    {% endif %}
+                </td>
+                <td>{{prisoner.military_base.name}}</td>
+                <td class='prisoner_statuses'>
+                    {% if prisoner.statinstances %}
+                        {% for statinstance in prisoner.statinstances %}
+                            <img class="status_img" src='/static/images/status_{{statinstance.status.id}}.svg'></img>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+                <td data-prisoner-id='{{prisoner.id}}' class="prisoner_url">Установить родственную связь</td>
+            </tr>
+            {% endfor %}
+          
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
