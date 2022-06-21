@@ -1,5 +1,7 @@
 import jwt
 import pandas as pd
+from datetime import date
+from dateutil import relativedelta
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
@@ -59,18 +61,31 @@ async def send_email_async(subject: str,
     
     
 async def create_dataframe():
+    # prisoners_data = await Prisoner_Pydantic.from_queryset(Prisoner.filter(id__lt=4))
     prisoners_data = await Prisoner_Pydantic.from_queryset(Prisoner.all())
-    columns = ['Name', 'DoB', 'Rank', 'Statuses']
-    indexes, names, dobs, ranks, statuses = [], [], [], [], []
-    # for prisoner in prisoners_data:
-    #     indexes.append(prisoner['id'])
-    #     names.append(prisoner['name'])
-    #     dobs.append(prisoner['date_of_birth'])
-    #     ranks.append(prisoner['rank'])
-    #     for status in prisoner['statinstances']:
-    #         statuses.append(status['status']['name'])
-    # list_of_tuples = [zip(names, dobs, ranks, statuses)]
-    # df = pd.DataFrame(list_of_tuples, columns=columns, indexes=indexes)
-    return prisoners_data
+    indexes, names, old, ranks, statuses = [], [], [], [], []
+    today = date.today()
+
+    for prisoner in prisoners_data:
+        indexes.append(prisoner.id)
+        names.append(prisoner.name)
+        if prisoner.date_of_birth:
+            diff = relativedelta.relativedelta(today, prisoner.date_of_birth)
+            old.append(diff.years)
+        else: old.append(pd.NA)
+        if prisoner.rank == '':
+            ranks.append(pd.NA)
+        else: ranks.append(prisoner.rank)
+        prisoner_statuses = []
+        if prisoner.statinstances:
+            for status in prisoner.statinstances:
+                prisoner_statuses.append(status.status.id)
+            statuses.append(prisoner_statuses)
+        else: statuses.append(pd.NA)
+    list_of_tuples = list(zip(names, old, ranks, statuses))
+    df = pd.DataFrame(list_of_tuples, 
+                      columns=['Name', 'Old', 'Rank', 'Status'],
+                      index=indexes)
+    return df
         
         
