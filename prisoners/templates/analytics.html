@@ -12,10 +12,6 @@
     <a class="fast_links-back">Всего в базе 138443</a>
 </header>
 <div>
-    <ul class='requestContainer'>
-        {% for request in requests_data %}
-        <li class='request' data-request-id='{{request.id}}' id='requests_data'>{{request.user.name}}({{request.family_relation}}) -> {{request.prisoner.name}}</li>
-        {% endfor %}
-    </ul>
+    
 </div>
 {% endblock content %}

@@ -4,7 +4,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates 
 
-from prisoners.dependencies import create_dataframe, death_percentage_plot
+from prisoners.dependencies import create_dataframe, ageCtgr_death_percentage_plot
 from prisoners.src.models import Prisoner
 from prisoners.src.schemas import Prisoner_Pydantic
 
@@ -24,7 +24,7 @@ async def return_dataframe(request: Request):
     min = df['Age'].min(axis = 0, skipna = True)
     min_count = len(df[df.Age == df.Age.min()])
     
-    # death_percentage_plot(df)
+    # ageCtgr_death_percentage_plot(df)
 
     return templates.TemplateResponse('analytics.html', {'request': request, 
                                                          'mean': mean, 

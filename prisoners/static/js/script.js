@@ -1,7 +1,5 @@
 const loginForm = document.getElementById('login_form')
-
 const registerForm = document.getElementById('register_form')
-// const registerStatus = registerForm?.querySelector('.register_status')
 
 const modal = document.getElementById('family_relation_request_modal')
 const requestButton = document.getElementById('request_button')
@@ -210,5 +208,19 @@ requests && requests.forEach((request) => {
 })
 
 
+const requestsRedirect = document.getElementById('requests')
+requestsRedirect && requestsRedirect.addEventListener('click', async (e) => {
+    const responce = await fetch(`/requests`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        }
+    })
+    if (responce.status === 200) {
+        window.location.href='/requests'
+    } 
+})
+
+console.log(localStorage.getItem('access_token'));
 
   

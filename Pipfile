@@ -42,6 +42,7 @@ pandas = "*"
 fastapi-mail = "*"
 fastapi-pagination = "*"
 seaborn = "*"
+matplotlib = "*"
 
 [dev-packages]
 

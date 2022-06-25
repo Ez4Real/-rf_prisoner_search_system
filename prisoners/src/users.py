@@ -1,7 +1,6 @@
 from datetime import timedelta
-import jwt
 
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 from passlib.hash import bcrypt
 
@@ -34,7 +33,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 
 @users_views.post('/', response_model=User_Pydantic)
 async def createUser(user: RegisterForm = Depends(RegisterForm.as_form)):
-    user_obj = User(email = user.email, 
+    user_obj = User(email = user.email,
                     password = bcrypt.hash(user.password),
                     name=user.name,
                     phone_number=user.phone_number)
