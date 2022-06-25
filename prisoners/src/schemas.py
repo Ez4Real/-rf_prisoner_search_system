@@ -1,4 +1,4 @@
-from datetime import date
+from lib2to3.pytree import Base
 from typing import List
 
 from pydantic import BaseModel
@@ -32,19 +32,31 @@ class RequestForm(BaseModel):
 
 
 class MilitaryBaseModel(BaseModel):
-        id: int 
-        name: str | None
-        soldiers: int | None = None
-        longitude: str | None = None
-        latitude: str | None = None
-        take_part: bool
+    id: int 
+    name: str | None
+    soldiers: int | None = None
+    longitude: str | None = None
+    latitude: str | None = None
+    take_part: bool
 
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
 
 class TokenData(BaseModel):
     email: str | None = None
     scopes: List[str] = []
-        
-           
+    
+
+class UserModel(BaseModel):
+    email: str
+    password: str
+    name: str
+    phone_number: str
+    disabled: bool | None = False
+    
+    
 User_Pydantic = pydantic_model_creator(User, name='User')
 Prisoner_Pydantic = pydantic_model_creator(Prisoner, name='Prisoner')
 MilitaryBase_Pydantic = pydantic_model_creator(MilitaryBase, name='Base')

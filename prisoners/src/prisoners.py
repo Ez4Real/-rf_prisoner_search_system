@@ -10,7 +10,7 @@ from tortoise.contrib.fastapi import HTTPNotFoundError
 
 from prisoners.src.models import Prisoner, PrisonerRequest
 from prisoners.src.schemas import Prisoner_Pydantic, Request_Pydantic
-from prisoners.dependencies import get_current_user_id
+from prisoners.dependencies import get_current_user
 from prisoners.src.schemas import RequestForm
 
 
@@ -57,10 +57,10 @@ async def get_page_of_prisoners(
                      response_class=HTMLResponse,
                      responses={404: {"model": HTTPNotFoundError}})
 async def search_prisoners(request: Request, 
-                           name: str | None,
-                           base: str | None,
-                           rank: str | None,
-                           status: str | None):
+                           name: str | None = None,
+                           base: str | None = None,
+                           rank: str | None = None,
+                           status: str | None = None):
     prisoners_data = await Prisoner_Pydantic.from_queryset(Prisoner.filter(name__contains=name,
                                                                            military_base__name__contains=base,
                                                                            rank__contains=rank,
@@ -86,10 +86,10 @@ async def get_prisoner_by_id(request: Request, prisoner_id: int):
                       responses={404: {"model": HTTPNotFoundError}})
 async def create_request(prisonerId: int,
                          request: RequestForm = Depends(RequestForm.as_form),
-                         user_id: int = Depends(get_current_user_id)):
+                         user: int = Depends(get_current_user)):
     request_obj = PrisonerRequest(family_relation = request.family_relation,
                                   created_at = datetime.now(),
-                                  user_id = user_id,
+                                  user_id = user.id,
                                   prisoner_id = prisonerId)
     await request_obj.save()
     return await Request_Pydantic.from_tortoise_orm(request_obj)

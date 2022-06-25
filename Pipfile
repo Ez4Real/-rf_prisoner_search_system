@@ -41,6 +41,7 @@ pypika-tortoise = "*"
 pandas = "*"
 fastapi-mail = "*"
 fastapi-pagination = "*"
+seaborn = "*"
 
 [dev-packages]
 

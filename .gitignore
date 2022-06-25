@@ -1,6 +1,7 @@
 *.lock
 *.pdf
 *.docx
+*.png
 resources.txt
 questions.txt
 config.py

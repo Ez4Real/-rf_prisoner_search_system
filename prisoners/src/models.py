@@ -60,6 +60,7 @@ class User(Model):
     password = fields.CharField(128, min_length=8)
     name = fields.CharField(255)
     phone_number = fields.CharField(45, unique=True)
+    disabled = fields.BooleanField(default=False)
     
     def verify_password(self, password):
         return bcrypt.verify(password, self.password)
