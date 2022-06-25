@@ -183,12 +183,12 @@ def rank_categorise(row):
         senior_officers: 'старшие офицеры',
         higher_officers: 'высшие офицеры'
     }
-    if pd.isna(row['Age']):
+    if pd.isna(row['Rank']):
         return pd.NA
-    if rank_categories[row['Age']].lower() in soldiers: return rank_categories[soldiers]
-    elif rank_categories[row['Age']].lower() in ensigns: return rank_categories[ensigns]
-    elif rank_categories[row['Age']].lower() in junior_officers: return rank_categories[junior_officers]
-    elif rank_categories[row['Age']].lower() in senior_officers: return rank_categories[senior_officers]
+    if rank_categories[row['Rank']].lower() in soldiers: return rank_categories[soldiers]
+    elif rank_categories[row['Rank']].lower() in ensigns: return rank_categories[ensigns]
+    elif rank_categories[row['Rank']].lower() in junior_officers: return rank_categories[junior_officers]
+    elif rank_categories[row['Rank']].lower() in senior_officers: return rank_categories[senior_officers]
     else: return rank_categories[higher_officers]
     
 def ageCtgr_death_percentage_plot(df):
