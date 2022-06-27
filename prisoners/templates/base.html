@@ -11,6 +11,17 @@
     </title>
 </head>
     <body>
+        {% block header %}
+        <header>
+            <a href="/prisoners" class="fast_links-main">Оккупанты</a>
+            <nav class="nav-log">
+                <a href="/prisoners" class="fast_links active">Список</a>
+                <a href="/analytics" class="fast_links">Сатистика</a>
+                <a href="/requests" class="fast_links" id='requests'>Запросы</a>
+            </nav>
+            <a class="fast_links-back">Всего в базе {{prisoners_count}}</a>
+        </header>
+        {% endblock header %}
         <main>
             {% block content %}{% endblock content %}
         </main>  

@@ -1,3 +1,4 @@
+from email.policy import default
 from tortoise import fields
 from tortoise.models import Model
 from passlib.hash import bcrypt
@@ -60,7 +61,8 @@ class User(Model):
     password = fields.CharField(128, min_length=8)
     name = fields.CharField(255)
     phone_number = fields.CharField(45, unique=True)
-    disabled = fields.BooleanField(default=False)
+    # disabled = fields.BooleanField(default=False)
+    roles = fields.CharField(45, default='user')
     
     def verify_password(self, password):
         return bcrypt.verify(password, self.password)

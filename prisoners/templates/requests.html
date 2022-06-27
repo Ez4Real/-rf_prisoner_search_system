@@ -2,15 +2,6 @@
 {% block css %}<link href='/static/css/prisoners.css' rel="stylesheet">{% endblock css %}
 {% block title %}Запросы{% endblock title %}
 {% block content %}
-<header>
-    <a href="/prisoners" class="fast_links-main">Оккупанты</a>
-    <nav class="nav-log">
-        <a href="/prisoners" class="fast_links active">Список</a>
-        <a href="/analytics" class="fast_links">Сатистика</a>
-        <a href="/requests" class="fast_links">Запросы</a>
-    </nav>
-    <a class="fast_links-back">Всего в базе 138443</a>
-</header>
 <div>
     <ul class='requestContainer'>
         {% for request in requests_data %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block css %}<link href='/static/css/prisoner.css' rel="stylesheet">{% endblock css %}
 {% block title %}Розгляд запиту{% endblock title %}
+{% block header %}{% endblock header %}
 {% block content %}
     <div id ='request_data'>
         <p>ПІБ: {{ request_data.user.name }}</p>

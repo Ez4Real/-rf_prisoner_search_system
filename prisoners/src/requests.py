@@ -6,8 +6,8 @@ from fastapi.templating import Jinja2Templates
 from tortoise.contrib.fastapi import HTTPNotFoundError
 
 from prisoners.src.models import PrisonerRequest
-from prisoners.src.schemas import Request_Pydantic, User_Pydantic
-from prisoners.dependencies import send_email_async, get_current_active_admin
+from prisoners.src.schemas import Request_Pydantic
+from prisoners.dependencies import send_email_async
 
 
 requests_views = APIRouter()
@@ -19,7 +19,7 @@ templates = Jinja2Templates(directory=BASE_DIR / "templates")
                      response_class=HTMLResponse,
                      response_model=Request_Pydantic,
                      responses={404: {"model": HTTPNotFoundError}})
-async def get_all_requests(request: Request, requests_data = Depends(get_current_active_admin)):
+async def get_all_requests(request: Request):
     requests_data = await Request_Pydantic.from_queryset(PrisonerRequest.all())
     return templates.TemplateResponse('requests.html', {"request": request, 
                                                         "requests_data": requests_data}) 

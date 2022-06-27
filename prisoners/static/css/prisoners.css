@@ -51,6 +51,10 @@
   cursor: pointer;
 }
 
+.pagination .active {
+  background-color: #662200;
+}
+
 .pagination {
   list-style: none;
   display: flex;
@@ -110,37 +114,38 @@ body {
 body p {
   margin: 0px;
 }
-body main header {
+body header {
   padding: 39px 0px;
   display: flex;
   justify-content: space-around;
   align-content: center;
   background: #082032;
 }
-body main header .fast_links-main {
+body header .fast_links-main {
   color: rgb(255, 255, 255);
   font-size: 30px;
   text-decoration: none;
   font-weight: 700;
   font-family: system-ui;
 }
-body main header .fast_links-back {
+body header .fast_links-back {
   font-size: 18px;
   margin: 0 40px;
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: system-ui;
+  font-size: 20px;
 }
-body main header .nav-log {
+body header .nav-log {
   display: flex;
   align-items: center;
 }
-body main header .nav-log .fast_links {
+body header .nav-log .fast_links {
   font-size: 18px;
   margin: 0 40px;
   text-decoration: none;
   color: #FF4C29;
-  font-size: 20px;
+  font-size: 24px;
   font-family: system-ui;
 }
 body main section .type-form {

@@ -13,14 +13,17 @@ class RegisterForm(BaseModel):
     password: str
     name: str
     phone_number: str
+    roles: str
     @classmethod
     def as_form(cls,
                 email: str = Form(default=None),
                 password: str = Form(default=None),
                 name: str = Form(default=None),
-                phone_number: str = Form(default=None)
+                phone_number: str = Form(default=None),
+                roles: str = Form(default=None)
                 ):
-        return cls(email=email, password=password, name=name, phone_number=phone_number)
+        return cls(email=email, password=password, name=name, 
+                   phone_number=phone_number, roles=roles)
 
 
 class RequestForm(BaseModel):
@@ -43,6 +46,7 @@ class MilitaryBaseModel(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+    scopes: List[str] = []
 
 class TokenData(BaseModel):
     email: str | None = None

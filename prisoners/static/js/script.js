@@ -80,11 +80,9 @@ async function reviewRequest(type) {
         })
         reviewStatus.textContent = 'Запит успішно скасовано'
     }
-    if (responce.status === 200) {
         setTimeout(() => {
             reviewModal.style.display = "none";
         }, 1500)
-    } 
 }
 
 
@@ -162,7 +160,6 @@ familyRelationForm && familyRelationForm.addEventListener('submit', async (e) =>
 
 reviewRequestForm && reviewRequestForm.querySelectorAll('button[type=submit]').forEach(button => {
     button.addEventListener('click', async (e) => {
-        console.log(e.target.dataset.type);
         await reviewRequest(e.target.dataset.type)
 })
     // if (responce.status === 200) {
@@ -180,6 +177,7 @@ loginForm && loginForm.addEventListener('submit', async (e) => {
     })
     const result = await responce.json()
     localStorage.setItem('access_token', result.access_token)
+    localStorage.setItem('role', result.role)
     if (responce.status === 200) {
         window.location.href='/prisoners'
     }
@@ -209,18 +207,23 @@ requests && requests.forEach((request) => {
 
 
 const requestsRedirect = document.getElementById('requests')
-requestsRedirect && requestsRedirect.addEventListener('click', async (e) => {
-    const responce = await fetch(`/requests`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-        }
-    })
-    if (responce.status === 200) {
-        window.location.href='/requests'
-    } 
+// requestsRedirect && requestsRedirect.addEventListener('click', async (e) => {
+//     e.preventDefault()
+//     const responce = await fetch(`/requests`, {
+//         method: 'GET',
+//         headers: {
+//             'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+//         }
+//     })
+//     if (responce.status === 200) {
+//         window.location.href='/requests'
+//     } 
+// })
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const role = localStorage.getItem('role')
+    if (role !== 'admin') {
+        requestsRedirect.style.display = 'none'
+    }
 })
-
-console.log(localStorage.getItem('access_token'));
-
-  

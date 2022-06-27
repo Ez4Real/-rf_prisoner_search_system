@@ -2,15 +2,6 @@
 {% block css %}<link href='/static/css/prisoners.css' rel="stylesheet">{% endblock css %}
 {% block title %}Поиск пленных{% endblock title %}
 {% block content %}
-<header>
-    <a href="/prisoners" class="fast_links-main">Оккупанты</a>
-    <nav class="nav-log">
-        <a href="/prisoners" class="fast_links active">Список</a>
-        <a href="/analytics" class="fast_links">Сатистика</a>
-        <a class="fast_links" id='requests'>Запросы</a>
-    </nav>
-    <a class="fast_links-back">Всего в базе {{prisoners_count}}</a>
-</header>
 <section>
     <div class="type-form">
         <form action='/prisoners/search'>
@@ -98,7 +89,7 @@
                 <li class="page-item"><span class="page-link">4</span></li>
                 <li class="page-item"><span class="page-link">5</span></li>
                 <li class="page-item disabled"><span class="page-link">...</span></li>
-                <li class="page-item"><span class="page-link">2848</span></li>
+                <li class="page-item"><span class="page-link">2938</span></li>
                 <li class="page-item"><span class="page-link">»</span></li>
             </ul>
         </div>

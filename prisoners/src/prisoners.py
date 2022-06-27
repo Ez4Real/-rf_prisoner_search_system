@@ -10,7 +10,7 @@ from tortoise.contrib.fastapi import HTTPNotFoundError
 
 from prisoners.src.models import Prisoner, PrisonerRequest
 from prisoners.src.schemas import Prisoner_Pydantic, Request_Pydantic, User_Pydantic
-from prisoners.dependencies import get_current_active_user
+from prisoners.dependencies import get_current_user
 from prisoners.src.schemas import RequestForm
 
 
@@ -86,7 +86,7 @@ async def get_prisoner_by_id(request: Request, prisoner_id: int):
                       responses={404: {"model": HTTPNotFoundError}})
 async def create_request(prisonerId: int,
                          request: RequestForm = Depends(RequestForm.as_form),
-                         user: User_Pydantic = Depends(get_current_active_user)):
+                         user: User_Pydantic = Depends(get_current_user)):
     request_obj = PrisonerRequest(family_relation = request.family_relation,
                                   created_at = datetime.now(),
                                   user_id = user.id,
