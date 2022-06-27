@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block css %}<link href='/static/css/prisoners.css' rel="stylesheet">{% endblock css %}
+{% block title %}Запросы{% endblock title %}
+{% block content %}
+
+<div class='analytics_container'>
+    <div class='death'>
+        <h3>Показатели смертности на войне в Украине</h3>
+        <img src='/static/images/deathsAgeCategories.png'></img>
+        <img src='/static/images/deathsRankCategories.png'></img>
+        <img class='histogram' src='/static/images/rankAgeCtgrDeathStatus.png'></img>
+    </div>
+    <div class='statusHist'>
+        <h3>Показатели статусов касательно военнослужащих</h3>
+        <img class='histogram' src='/static/images/rankAgeCtgrInvestigateStatus.png'></img>
+        <img class='histogram' src='/static/images/rankAgeCtgrPrisonerStatus.png'></img>
+        <img class='histogram' src='/static/images/rankAgeCtgrTakePart.png'></img>
+    </div>
+</div>
+
+{% endblock content %}

@@ -95,6 +95,7 @@ def status_categorise(row, status):
     
     
 async def create_dataframe():
+    # prisoners_data = await Prisoner_Pydantic.from_queryset(Prisoner.filter(id__lt=5001))
     prisoners_data = await Prisoner_Pydantic.from_queryset(Prisoner.all())
     indexes, names, old, ranks, statuses = [], [], [], [], []
     today = date.today()
@@ -135,7 +136,7 @@ def rankCtgr_percentage_plot(df):
     df = df.dropna()
     data = df['Категории званий'].value_counts(normalize=True) * 100
     labels = ['нижние чины', 'младшие офицеры', 'старшие офицеры', 'прапорщики/мичманы', 'высшие офицеры']
-    colors = sns.color_palette('mako')[1:6]
+    colors = sns.color_palette('flare')[1:6]
     plt.title('Процент категорий званий')
     plt.pie(data, colors = colors, autopct='%.3f%%')
     plt.legend(labels = labels, title='Категории званий', loc="lower center", bbox_to_anchor=(0.475, -0.15), ncol= 3)
@@ -162,12 +163,13 @@ def ageCtgr_death_percentage_plot(df):
 def rankCtgr_death_percentage_plot(df):
     df['deathStatus'] = df.apply(lambda row: status_categorise(row, 2), axis=1)
     df = df[df.deathStatus != False]
-    df = df.drop(columns=['Age', 'Rank', 'Name', 'AgeCtgr', 'deathStatus'], axis=1)
+    df = df.drop(columns=['Age', 'Status', 'Rank', 'Name', 'AgeCtgr', 'deathStatus'], axis=1)
     df = df.dropna()
     
     data = df['Категории званий'].value_counts(normalize=True) * 100
     labels = ['нижние чины', 'младшие офицеры', 'старшие офицеры', 'прапорщики/мичманы', 'высшие офицеры']
     colors = sns.color_palette('viridis')
+    
     plt.clf()
     plt.title('Смертность категорий званий')
     plt.pie(data, colors = colors, autopct='%.1f%%')

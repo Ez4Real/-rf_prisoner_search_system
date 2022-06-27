@@ -34,13 +34,13 @@ def register_views(app: FastAPI):
     from prisoners.src.auth import auth_views
     from prisoners.src.bases import bases_views
     from prisoners.src.requests import requests_views
-    from prisoners.src.analytics import analytics_views
+    from prisoners.src.statistics import statistics_views
     app.include_router(users_views, prefix="/users", tags=['users'])
     app.include_router(prisoners_views, prefix="/prisoners", tags=['prisoners'])
     app.include_router(auth_views, prefix="/auth", tags=['auth'])
     app.include_router(bases_views, prefix="/military-bases", tags=['military-bases'])
     app.include_router(requests_views, prefix="/requests", tags=['requests'])
-    app.include_router(analytics_views, prefix="/analytics", tags=['analytics'])
+    app.include_router(statistics_views, prefix="/statistics", tags=['statistics'])
     
     
 Tortoise.init_models(["prisoners.src.models"], "models")

@@ -2,6 +2,74 @@
   color: #FF4C29;
 }
 
+.analytics_container {
+  margin: auto;
+  width: 90%;
+  height: 100%;
+  border-radius: 0px 0px 15px 15px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.analytics_container div {
+  border-bottom: 3px solid;
+  border-color: #333;
+  border-style: double;
+  
+}
+
+.statusHist .histogram {
+  padding: 10px 0px 10px 170px;
+}
+
+.death h3 {
+  padding: 15px;
+  color: #0087ca;
+  transition: all 1s;
+  margin: 0px;
+  font-size: 27px;
+}
+
+.death h3:hover {
+  color: crimson;
+}
+
+.death .histogram {
+  margin: auto;
+  padding: 30px 0px 15px 80px;
+}
+
+.statusHist h3 {
+  padding: 15px;
+  position: relative;
+  color: #0087ca;
+  margin: 0px;
+  font-size: 27px;
+  position: relative;
+}
+
+.statusHist h3:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:#0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.statusHist h3:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.statusHist {
+  text-align: center;
+}
+
 .prisonerContainer .prisoner_url{
   color: rgb(0, 162, 255);
 }
